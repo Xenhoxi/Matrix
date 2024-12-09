@@ -6,7 +6,7 @@
 /*   By: ljerinec <ljerinec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 13:45:14 by ljerinec          #+#    #+#             */
-/*   Updated: 2024/12/03 11:01:31 by ljerinec         ###   ########.fr       */
+/*   Updated: 2024/12/09 15:10:51 by ljerinec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define MATRIX_HPP
 
 #include "Vector.hpp"
+#include <array>
 
 struct Vector;
 
@@ -21,6 +22,7 @@ struct Matrix
 {
 public:
 	Matrix();
+	// Matrix(std::array<float> new_matrix);
 	Matrix(const Matrix &src);
 	~Matrix();
 

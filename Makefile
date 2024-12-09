@@ -6,12 +6,12 @@
 #    By: ljerinec <ljerinec@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/27 12:57:34 by ljerinec          #+#    #+#              #
-#    Updated: 2024/11/29 15:56:57 by ljerinec         ###   ########.fr        #
+#    Updated: 2024/12/09 14:28:11 by ljerinec         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = c++
-CFLAGS = -Wall -Werror -Wextra -g3
+CFLAGS = -Wall -Werror -Wextra -g3 -fsanitize=address
 
 SOURCES =	main.cpp \
 			Vector.cpp \

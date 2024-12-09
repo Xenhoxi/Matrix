@@ -6,7 +6,7 @@
 /*   By: ljerinec <ljerinec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 15:32:03 by ljerinec          #+#    #+#             */
-/*   Updated: 2024/12/03 11:12:18 by ljerinec         ###   ########.fr       */
+/*   Updated: 2024/12/09 15:10:59 by ljerinec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 
 Matrix::Matrix(void)
 {
+	return;
 }
 
-// Matrix::Matrix(float **new_matrix)
+// Matrix::Matrix(std::array new_matrix)
 // {
 // 	this._matrix = new_matrix;
 // }
