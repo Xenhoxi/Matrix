@@ -6,7 +6,7 @@
 #    By: ljerinec <ljerinec@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/27 12:57:34 by ljerinec          #+#    #+#              #
-#    Updated: 2024/11/27 14:03:51 by ljerinec         ###   ########.fr        #
+#    Updated: 2024/11/29 15:56:57 by ljerinec         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ CFLAGS = -Wall -Werror -Wextra -g3
 
 SOURCES =	main.cpp \
 			Vector.cpp \
+			Matrix.cpp \
 
 OBJ_DIR = objs/
 OBJECTS = $(SOURCES:.cpp=.o)
