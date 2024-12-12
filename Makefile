@@ -6,7 +6,7 @@
 #    By: ljerinec <ljerinec@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/27 12:57:34 by ljerinec          #+#    #+#              #
-#    Updated: 2024/12/09 14:28:11 by ljerinec         ###   ########.fr        #
+#    Updated: 2024/12/10 15:22:12 by ljerinec         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,7 @@ all: $(MATRIX)
 	@$(eval REMAINING=$(shell echo $$(($(BAR_WIDTH) - $(PROGRESS)))))
 
 	@printf "$(PRINT_PREFIX) \033[1;33m[$(CURRENT_FILE)/$(TOTAL_FILES)] ["
-	@printf "%${PROGRESS}s" | tr ' ' '■'
+	@printf "%${PROGRESS}s" | tr ' ' 'O'
 	@printf "%${REMAINING}s" | tr ' ' ' '
 	@printf "]\r\033[0m"
 
@@ -50,7 +50,7 @@ all: $(MATRIX)
 $(MATRIX): $(OBJECTS)
 	@$(CC) $(CFLAGS) -o $(MATRIX) $(OBJECTS)
 	@printf "$(PRINT_PREFIX) \033[1;32m[$(CURRENT_FILE)/$(TOTAL_FILES)] ["
-	@printf "%${PROGRESS}s" | tr ' ' '■'
+	@printf "%${PROGRESS}s" | tr ' ' 'O'
 	@printf "%${REMAINING}s" | tr ' ' ' '
 	@printf "][OK]\n\033[0m"
 

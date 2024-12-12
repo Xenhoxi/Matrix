@@ -6,51 +6,56 @@
 /*   By: ljerinec <ljerinec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 13:53:38 by ljerinec          #+#    #+#             */
-/*   Updated: 2024/12/09 14:43:40 by ljerinec         ###   ########.fr       */
+/*   Updated: 2024/12/12 14:56:47 by ljerinec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "iostream"
 #include "Vector.hpp"
 
-Vector::Vector(float *new_vector, unsigned long byte_size)
+Vector::Vector(std::vector<float> new_vector)
 {
-	if (byte_size > 0)
-		this->_size = (byte_size / sizeof(new_vector[0]));
-	else
-		this->_size = 0;
-	if (new_vector)
+	this->_size = new_vector.size();
+	if (this->_size > 0)
 	{
-		this->_vec = new float[this->_size];
+		this->_vector = new_vector;
 		for (unsigned int i = 0; i < _size; i++)
-			this->_vec[i] = new_vector[i];
+			this->_vector[i] = new_vector[i];
 	}
-	std::cout << "Created a vector of size: " << this->_size << std::endl;
+	std::cout << "Created a vector of size " << this->_size << std::endl;
 }
 
 Vector::~Vector()
 {
-	delete [] this->_vec;
+	std::cout << "Delete vector !" << std::endl; 
+	return ;
 }
 
 Vector::Vector(const Vector &src)
 {
 	*this = src;
+	std::cout << "Created a vector of size " << this->_size << " by copy !" << std::endl;
 }
 
 Vector &Vector::operator=(Vector const &rhs)
 {
 	if (this != &rhs)
 	{
-		this->_vec = rhs._vec;
+		this->_vector = rhs._vector;
 		this->_size = rhs._size;
 	}
 	return (*this);
 }
 
+void Vector::plus_un()
+{
+	this->_vector[0] += 1;
+	std::cout << "Vector has changed !" << std::endl;
+}
+
 int Vector::size() const
 {
-	return (this->_size);
+	return (this->_vector.size());
 }
 
 void Vector::display(void)
@@ -60,15 +65,15 @@ void Vector::display(void)
 	std::cout << "[";
 	while (++i < this->_size)
 	{
-		std::cout << this->_vec[i];
+		std::cout << this->_vector[i];
 		if (i + 1 < this->_size)
 			std::cout << ", ";
 	}
 	std::cout << "]" << std::endl;
 }
 
-std::ostream &operator<<(std::ostream &out, const Vector &rhs)
-{
-	(void) rhs;
-	return (out);
-}
+// std::ostream &operator<<(std::ostream &out, const Vector &rhs)
+// {
+// 	(void) rhs;
+// 	return (out);
+// }

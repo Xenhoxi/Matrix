@@ -6,7 +6,7 @@
 /*   By: ljerinec <ljerinec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 13:45:14 by ljerinec          #+#    #+#             */
-/*   Updated: 2024/12/09 15:10:51 by ljerinec         ###   ########.fr       */
+/*   Updated: 2024/12/12 16:26:16 by ljerinec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ struct Matrix
 {
 public:
 	Matrix();
-	// Matrix(std::array<float> new_matrix);
+	Matrix(std::vector<std::vector<float>> new_matrix);
 	Matrix(const Matrix &src);
 	~Matrix();
 
@@ -33,9 +33,9 @@ public:
 
 	Matrix &operator=(const Matrix &rhs);
 private:
-	float **_matrix;
-	unsigned int _n;
-	unsigned int _m;
+	std::vector<std::vector<float>> 	_matrix;
+	unsigned int 						_n;
+	unsigned int 						_m;
 };
 
 #endif
