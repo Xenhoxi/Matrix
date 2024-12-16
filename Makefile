@@ -6,7 +6,7 @@
 #    By: ljerinec <ljerinec@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/27 12:57:34 by ljerinec          #+#    #+#              #
-#    Updated: 2024/12/10 15:22:12 by ljerinec         ###   ########.fr        #
+#    Updated: 2024/12/16 11:36:10 by ljerinec         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,5 +61,8 @@ fclean: clean
 	@rm -f $(MATRIX)
 
 re: fclean all
+
+exec: re
+	./$(MATRIX)
 
 .PHONY: all clean fclean re

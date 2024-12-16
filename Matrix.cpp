@@ -6,7 +6,7 @@
 /*   By: ljerinec <ljerinec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 15:32:03 by ljerinec          #+#    #+#             */
-/*   Updated: 2024/12/12 16:48:01 by ljerinec         ###   ########.fr       */
+/*   Updated: 2024/12/16 11:53:24 by ljerinec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,19 +22,13 @@ Matrix::Matrix(void)
 
 Matrix::Matrix(std::vector<std::vector<float>> new_matrix)
 {
-	this->_size = new_vector.size();
-	if (this->_size > 0)
-	{
-		this->_vector = new_vector;
-		for (unsigned int i = 0; i < _size; i++)
-			this->_vector[i] = new_vector[i];
-	}
 	_matrix = new_matrix;
 	std::cout << "Matrix created !" << std::endl;
 }
 
 Matrix::~Matrix(void)
 {
+	cout << "Delete matrix !" << endl;
 }
 
 Matrix::Matrix(const Matrix &src)
@@ -70,6 +64,43 @@ void	Matrix::display()
 	}
 	cout << "]" << endl;
 	
+}
+
+bool	Matrix::is_square(void)
+{
+	vector<vector<float>>::iterator	it_row = _matrix.begin();
+	size_t	lenght = (*it_row++).size();
+
+	while (it_row != _matrix.end())
+	{
+		if ((*it_row).size() != lenght)
+			return false;
+		it_row++;
+	}
+	return true;
+}
+
+vector<unsigned long>	Matrix::shape(void)
+{
+	vector<unsigned long> shape;
+	vector<vector<float>>::iterator	it_row = _matrix.begin();
+	shape = {0, 0};
+	shape[1] = (*it_row++).size();
+
+	shape[0] = _matrix.size();
+	if ((*this).is_square())
+		shape[1] = _matrix[0].size();
+	else
+	{
+		while (it_row != _matrix.end())
+		{
+			if ((*it_row).size() > shape[1])
+				shape[1] = (*it_row).size();
+			it_row++;
+		}
+	}
+	cout << "[" << shape[0] << ", " << shape[1] << "]" << endl;
+	return (shape);
 }
 
 Matrix &Matrix::operator=(const Matrix &rhs)

@@ -6,7 +6,7 @@
 /*   By: ljerinec <ljerinec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 13:45:14 by ljerinec          #+#    #+#             */
-/*   Updated: 2024/12/12 16:26:16 by ljerinec         ###   ########.fr       */
+/*   Updated: 2024/12/16 11:17:05 by ljerinec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ public:
 	Matrix(const Matrix &src);
 	~Matrix();
 
-	int		*shape(void);
-	void	display(void);
-	int		is_square(void);
-	Vector	reshape(void);
+	std::vector<unsigned long>	shape(void);
+	void			display(void);
+	bool			is_square(void);
+	Vector			reshape(void);
 
 	Matrix &operator=(const Matrix &rhs);
 private:

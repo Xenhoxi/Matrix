@@ -6,7 +6,7 @@
 /*   By: ljerinec <ljerinec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 13:54:54 by ljerinec          #+#    #+#             */
-/*   Updated: 2024/12/12 14:56:51 by ljerinec         ###   ########.fr       */
+/*   Updated: 2024/12/16 10:26:15 by ljerinec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ struct Vector {
     int		size(void) const;
 	void	display(void);
 	Matrix	reshape(int width);
-	void	plus_un(void);
 
 	Vector &operator=(Vector const &rhs);
 private:

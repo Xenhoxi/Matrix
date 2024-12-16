@@ -6,7 +6,7 @@
 /*   By: ljerinec <ljerinec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 13:53:38 by ljerinec          #+#    #+#             */
-/*   Updated: 2024/12/12 14:56:47 by ljerinec         ###   ########.fr       */
+/*   Updated: 2024/12/16 10:26:19 by ljerinec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,6 @@ Vector &Vector::operator=(Vector const &rhs)
 		this->_size = rhs._size;
 	}
 	return (*this);
-}
-
-void Vector::plus_un()
-{
-	this->_vector[0] += 1;
-	std::cout << "Vector has changed !" << std::endl;
 }
 
 int Vector::size() const
