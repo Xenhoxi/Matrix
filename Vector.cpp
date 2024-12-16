@@ -6,7 +6,7 @@
 /*   By: ljerinec <ljerinec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 13:53:38 by ljerinec          #+#    #+#             */
-/*   Updated: 2024/12/16 15:08:59 by ljerinec         ###   ########.fr       */
+/*   Updated: 2024/12/16 16:15:19 by ljerinec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,35 @@ void Vector::display(void)
 			std::cout << ", ";
 	}
 	std::cout << "]" << std::endl;
+}
+
+
+void Vector::add(Vector &added)
+{
+	if (this->size() != added.size())
+		throw Vector::unegalSize();
+	else
+	{
+		for (int i = 0; i < this->size(); i++)
+			this->_vector[i] += added._vector[i];
+	}
+}
+
+void Vector::sub(Vector &substact)
+{
+	if (this->size() != substact.size())
+		throw Vector::unegalSize();
+	else
+	{
+		for (int i = 0; i < this->size(); i++)
+			this->_vector[i] -= substact._vector[i];
+	}
+}
+
+void Vector::scl(float scaler)
+{
+	for (int i = 0; i < this->size(); i++)
+		this->_vector[i] *= scaler;
 }
 
 // std::ostream &operator<<(std::ostream &out, const Vector &rhs)

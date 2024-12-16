@@ -6,7 +6,7 @@
 /*   By: ljerinec <ljerinec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 13:54:54 by ljerinec          #+#    #+#             */
-/*   Updated: 2024/12/16 14:47:07 by ljerinec         ###   ########.fr       */
+/*   Updated: 2024/12/16 16:14:47 by ljerinec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,20 @@ struct Vector {
 	void	display(void);
 	Matrix	reshape(unsigned int width);
 
+	void	add(Vector &added);
+	void	sub(Vector &substract);
+	void	scl(float scaler);	
+
 	Vector &operator=(Vector const &rhs);
+
+	class unegalSize : public std::exception 
+	{
+	public:
+		virtual const char* what() const throw() {
+			return ("Size between both vector are nor egal impossible to compute addition of this vector !"); 
+		}
+	};
+
 private:
 	std::vector<float>	_vector;
 	unsigned int		_size;
