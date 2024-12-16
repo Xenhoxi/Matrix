@@ -6,7 +6,7 @@
 /*   By: ljerinec <ljerinec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 13:53:38 by ljerinec          #+#    #+#             */
-/*   Updated: 2024/12/16 10:26:19 by ljerinec         ###   ########.fr       */
+/*   Updated: 2024/12/16 15:08:59 by ljerinec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ Vector::Vector(std::vector<float> new_vector)
 
 Vector::~Vector()
 {
-	std::cout << "Delete vector !" << std::endl; 
+	// std::cout << "Delete vector !" << std::endl;
 	return ;
 }
 
@@ -50,6 +50,25 @@ Vector &Vector::operator=(Vector const &rhs)
 int Vector::size() const
 {
 	return (this->_vector.size());
+}
+
+Matrix	Vector::reshape(unsigned int width)
+{
+	std::vector<std::vector<float>> new_matrix;
+	std::vector<float> in_vector;
+
+	for (std::vector<float>::iterator it_vec = _vector.begin(); it_vec < _vector.end();it_vec++)
+	{
+		in_vector.push_back(*it_vec);
+		if (in_vector.size() == width)
+		{
+			new_matrix.push_back(in_vector);
+			in_vector.clear();
+		}
+	}
+	if (in_vector.size())
+		new_matrix.push_back(in_vector);
+	return (Matrix(new_matrix));
 }
 
 void Vector::display(void)
