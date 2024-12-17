@@ -6,7 +6,7 @@
 /*   By: ljerinec <ljerinec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 15:32:03 by ljerinec          #+#    #+#             */
-/*   Updated: 2024/12/16 14:58:22 by ljerinec         ###   ########.fr       */
+/*   Updated: 2024/12/17 11:47:12 by ljerinec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ Matrix::Matrix(void)
 Matrix::Matrix(std::vector<std::vector<float>> new_matrix)
 {
 	_matrix = new_matrix;
+	this->shape();
 	std::cout << "Matrix created !" << std::endl;
 }
 
@@ -43,6 +44,7 @@ void	Matrix::display()
 	std::vector<std::vector<float>>::iterator	it_row = _matrix.begin();
 	std::vector<float>::iterator it_col = (*it_row).begin();
 
+	std::cout << "-- Display of matrix n = " << _n << " m = " << _m  << " --"<< std::endl; 
 	std::cout << "[";
 	while (it_row != _matrix.end())
 	{
@@ -86,20 +88,26 @@ std::vector<unsigned long>	Matrix::shape(void)
 	std::vector<std::vector<float>>::iterator	it_row = _matrix.begin();
 
 	shape = {0, 0};
-	shape[1] = (*it_row++).size();
-	shape[0] = _matrix.size();
-	if ((*this).is_square())
-		shape[1] = _matrix[0].size();
+	shape[0] = (*it_row).size();
+	shape[1] = _matrix.size();
+	if (this->is_square())
+		shape[0] = _matrix[0].size();
 	else
 	{
 		while (it_row != _matrix.end())
 		{
 			if ((*it_row).size() > shape[1])
-				shape[1] = (*it_row).size();
+				shape[0] = (*it_row).size();
 			it_row++;
 		}
 	}
-	std::cout << "[" << shape[0] << ", " << shape[1] << "]" << std::endl;
+	this->_m = shape[1];
+	this->_n = shape[0];
+	// std::cout << "  n  " << std::endl;
+	// std::cout << " --->" << std::endl;
+	// std::cout << "m|" << std::endl;
+	// std::cout << " v" << std::endl;
+	std::cout << "[" << _n << ", " << _m << "]" << std::endl;
 	return (shape);
 }
 
@@ -131,4 +139,37 @@ Matrix &Matrix::operator=(const Matrix &rhs)
 		this->_m = rhs._m;
 	}
 	return (*this);
+}
+
+void	Matrix::add(Matrix &added)
+{
+	if (!this->is_square() || !added.is_square()
+		|| _n != added._n || _m != added._m)
+			throw Matrix::ShapeError();
+	else
+	{
+		for (unsigned int i = 0; i < _m; i++)
+			for (unsigned int u = 0; u < _n; u++)
+				_matrix[i][u] += added._matrix[i][u];
+	}
+}
+
+void	Matrix::sub(Matrix &substract)
+{
+	if (!this->is_square() || !substract.is_square()
+		|| _n != substract._n || _m != substract._m)
+			throw Matrix::ShapeError();
+	else
+	{
+		for (unsigned int i = 0; i < _m; i++)
+			for (unsigned int u = 0; u < _n; u++)
+				_matrix[i][u] -= substract._matrix[i][u];
+	}
+}
+
+void	Matrix::scl(float scaler)
+{
+	for (unsigned int i = 0; i < _m; i++)
+		for (unsigned int u = 0; u < _n; u++)
+			_matrix[i][u] *= scaler;
 }

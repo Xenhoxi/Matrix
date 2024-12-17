@@ -6,7 +6,7 @@
 /*   By: ljerinec <ljerinec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 13:54:54 by ljerinec          #+#    #+#             */
-/*   Updated: 2024/12/16 16:14:47 by ljerinec         ###   ########.fr       */
+/*   Updated: 2024/12/17 10:14:37 by ljerinec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ struct Vector {
 
 	Vector &operator=(Vector const &rhs);
 
-	class unegalSize : public std::exception 
+	class SizeError : public std::exception 
 	{
 	public:
 		virtual const char* what() const throw() {
@@ -47,7 +47,5 @@ private:
 	std::vector<float>	_vector;
 	unsigned int		_size;
 };
-
-// std::ostream &operator<<(std::ostream &out, const Vector &rhs);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ljerinec <ljerinec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 13:53:38 by ljerinec          #+#    #+#             */
-/*   Updated: 2024/12/16 16:15:19 by ljerinec         ###   ########.fr       */
+/*   Updated: 2024/12/17 11:47:39 by ljerinec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ void Vector::display(void)
 {
 	unsigned int    i = -1;
 
+	std::cout << "-- Display of vector size = " << _size << " --"<< std::endl; 
 	std::cout << "[";
 	while (++i < this->_size)
 	{
@@ -89,7 +90,7 @@ void Vector::display(void)
 void Vector::add(Vector &added)
 {
 	if (this->size() != added.size())
-		throw Vector::unegalSize();
+		throw Vector::SizeError();
 	else
 	{
 		for (int i = 0; i < this->size(); i++)
@@ -100,7 +101,7 @@ void Vector::add(Vector &added)
 void Vector::sub(Vector &substact)
 {
 	if (this->size() != substact.size())
-		throw Vector::unegalSize();
+		throw Vector::SizeError();
 	else
 	{
 		for (int i = 0; i < this->size(); i++)
@@ -113,9 +114,3 @@ void Vector::scl(float scaler)
 	for (int i = 0; i < this->size(); i++)
 		this->_vector[i] *= scaler;
 }
-
-// std::ostream &operator<<(std::ostream &out, const Vector &rhs)
-// {
-// 	(void) rhs;
-// 	return (out);
-// }

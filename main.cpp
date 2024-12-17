@@ -6,7 +6,7 @@
 /*   By: ljerinec <ljerinec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 13:10:39 by ljerinec          #+#    #+#             */
-/*   Updated: 2024/12/16 16:17:16 by ljerinec         ###   ########.fr       */
+/*   Updated: 2024/12/17 11:46:27 by ljerinec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,8 @@ int main()
     // my_vec.display();
     // vec_2.display();
 
-    // Matrix  mat_1({
-    //     {1.6, 2, 3, 5},
-    //     {1, 6, 3, 5},
-    //     {1, 2, 9.5423, 5},
-    //     {1, 2, 9.5423}}
-    // );
-    // Matrix  mat_2(mat_1);
+    
+    // mat_1.shape();
     // mat_1.display();
     // mat_2.display();
     // std::cout << mat_1.is_square() << std::endl;
@@ -49,17 +44,47 @@ int main()
     // vec_to_matrix.display();
 
 
-    std::cout << "------" << std::endl;
+    std::cout << "------ Vector add, sub and scaler operation ------" << std::endl;
     try
 	{
-        my_vec.display();
-        my_vec.add(vec_2);
-        my_vec.display();
-        my_vec.sub(vec_2);
-        my_vec.display();
-        my_vec.scl(2.0);
-        my_vec.scl(-2.0);
-        my_vec.display();
+        Vector  vec_1({1.0, 2.3, 6.0, 7.8902});
+        Vector  vec_2(my_vec);
+        vec_1.display();
+        vec_2.display();
+        vec_1.add(vec_2);
+        vec_1.display();
+        vec_1.sub(vec_2);
+        vec_1.display();
+        vec_1.scl(2.0);
+        vec_1.display();
+        vec_1.scl(-2.0);
+        vec_1.display();
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << "Error: " << e.what() << '\n';
+	}
+
+    std::cout << "------ Matrix add, sub and scaler operation ------" << std::endl;
+    try
+	{
+        Matrix  mat_1({
+        {-1, 0, 1},
+        {2, 3, 4},
+        {5, 6, 7},
+        {8, 9, 10}}
+        );
+        Matrix  mat_2(mat_1);
+        mat_1.display();
+        mat_2.display();
+        mat_1.add(mat_2);
+        mat_1.display();
+        mat_1.sub(mat_2);
+        mat_1.display();
+        mat_1.scl(2.0);
+        mat_1.display();
+        mat_1.scl(-2.0);
+        mat_1.display();
 	}
 	catch(const std::exception& e)
 	{
