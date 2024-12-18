@@ -6,7 +6,7 @@
 /*   By: ljerinec <ljerinec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 13:45:14 by ljerinec          #+#    #+#             */
-/*   Updated: 2024/12/17 11:07:49 by ljerinec         ###   ########.fr       */
+/*   Updated: 2024/12/18 15:33:57 by ljerinec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define MATRIX_HPP
 
 #include "Vector.hpp"
-#include <array>
 
 struct Vector;
 

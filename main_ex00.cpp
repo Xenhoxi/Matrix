@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   main_ex00.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ljerinec <ljerinec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 13:10:39 by ljerinec          #+#    #+#             */
-/*   Updated: 2024/12/17 11:46:27 by ljerinec         ###   ########.fr       */
+/*   Updated: 2024/12/18 14:20:35 by ljerinec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,27 +22,6 @@ int main()
     Vector  my_vec({1.0, 2.3, 6.0, 7.8902});
     Vector  vec_2(my_vec);
     Vector  vec_3({1.0, 2.3, 6.0, 7.8902, 9});
-    // my_vec.display();
-    // vec_2.display();
-
-    
-    // mat_1.shape();
-    // mat_1.display();
-    // mat_2.display();
-    // std::cout << mat_1.is_square() << std::endl;
-    // std::cout << mat_2.is_square() << std::endl;
-    
-    // mat_1.shape();
-
-    // Vector mat_to_vec = mat_1.reshape();
-    // mat_to_vec.display();
-    // std::cout << mat_to_vec.size() << std::endl;
-
-    // std::cout << "------" << std::endl;
-    // my_vec.display();
-    // Matrix vec_to_matrix = my_vec.reshape(3);
-    // vec_to_matrix.display();
-
 
     std::cout << "------ Vector add, sub and scaler operation ------" << std::endl;
     try
@@ -92,3 +71,24 @@ int main()
 	}
     return (0);
 }
+
+
+// let e1 = Vector::from([1., 0., 0.]);
+
+// let e2 = Vector::from([0., 1., 0.]);
+
+// let e3 = Vector::from([0., 0., 1.]);
+
+// let v1 = Vector::from([1., 2., 3.]);
+
+// let v2 = Vector::from([0., 10., -100.]);
+
+// println!("{}", linear_combination<Vector<f32>, f32>([e1, e2, e3], [10., -2., 0.5]));
+// [10.]
+// [-2.]
+// [0.5]
+
+// println!("{}", linear_combination<Vector<f32>, f32>([v1, v2], [10., -2.]));
+// [10.]
+// [0.]
+// [230.]

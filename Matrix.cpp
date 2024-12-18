@@ -6,14 +6,12 @@
 /*   By: ljerinec <ljerinec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 15:32:03 by ljerinec          #+#    #+#             */
-/*   Updated: 2024/12/17 11:47:12 by ljerinec         ###   ########.fr       */
+/*   Updated: 2024/12/18 15:48:31 by ljerinec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Matrix.hpp"
 #include <vector>
-
-// using namespace std;
 
 Matrix::Matrix(void)
 {
@@ -24,7 +22,7 @@ Matrix::Matrix(std::vector<std::vector<float>> new_matrix)
 {
 	_matrix = new_matrix;
 	this->shape();
-	std::cout << "Matrix created !" << std::endl;
+	// std::cout << "Matrix created !" << std::endl;
 }
 
 Matrix::~Matrix(void)

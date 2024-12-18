@@ -6,7 +6,7 @@
 /*   By: ljerinec <ljerinec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 13:53:38 by ljerinec          #+#    #+#             */
-/*   Updated: 2024/12/17 11:47:39 by ljerinec         ###   ########.fr       */
+/*   Updated: 2024/12/18 15:48:39 by ljerinec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Vector::Vector(std::vector<float> new_vector)
 		for (unsigned int i = 0; i < _size; i++)
 			this->_vector[i] = new_vector[i];
 	}
-	std::cout << "Created a vector of size " << this->_size << std::endl;
+	// std::cout << "Created a vector of size " << this->_size << std::endl;
 }
 
 Vector::~Vector()
@@ -34,7 +34,7 @@ Vector::~Vector()
 Vector::Vector(const Vector &src)
 {
 	*this = src;
-	std::cout << "Created a vector of size " << this->_size << " by copy !" << std::endl;
+	// std::cout << "Created a vector of size " << this->_size << " by copy !" << std::endl;
 }
 
 Vector &Vector::operator=(Vector const &rhs)

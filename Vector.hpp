@@ -6,7 +6,7 @@
 /*   By: ljerinec <ljerinec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 13:54:54 by ljerinec          #+#    #+#             */
-/*   Updated: 2024/12/17 10:14:37 by ljerinec         ###   ########.fr       */
+/*   Updated: 2024/12/18 14:54:39 by ljerinec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ struct Vector {
 
 	void	add(Vector &added);
 	void	sub(Vector &substract);
-	void	scl(float scaler);	
+	void	scl(float scaler);
 
 	Vector &operator=(Vector const &rhs);
 
