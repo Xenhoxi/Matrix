@@ -6,14 +6,17 @@
 #    By: ljerinec <ljerinec@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/27 12:57:34 by ljerinec          #+#    #+#              #
-#    Updated: 2024/12/18 15:34:33 by ljerinec         ###   ########.fr        #
+#    Updated: 2024/12/19 15:04:10 by ljerinec         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = c++
 CFLAGS = -Wall -Werror -Wextra -g3 -fsanitize=address
 
-SOURCES =	main_ex01.cpp \
+ex := 00
+MAIN = main_ex$(ex).cpp
+
+SOURCES =	$(MAIN) \
 			Vector.cpp \
 			Matrix.cpp \
 			linear_combination.cpp \
@@ -54,12 +57,15 @@ $(MATRIX): $(OBJECTS)
 	@printf "%${PROGRESS}s" | tr ' ' 'O'
 	@printf "%${REMAINING}s" | tr ' ' ' '
 	@printf "][OK]\n\033[0m"
+	@mkdir -p objects
+	@mv *.o ./objects/
 
 clean:
 	@rm -rf $(OBJECTS)
 
 fclean: clean
 	@rm -f $(MATRIX)
+	@rm -rf objects
 
 re: fclean all
 

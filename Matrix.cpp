@@ -6,7 +6,7 @@
 /*   By: ljerinec <ljerinec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 15:32:03 by ljerinec          #+#    #+#             */
-/*   Updated: 2024/12/18 15:48:31 by ljerinec         ###   ########.fr       */
+/*   Updated: 2024/12/19 16:46:18 by ljerinec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ std::vector<unsigned long>	Matrix::shape(void)
 	// std::cout << " --->" << std::endl;
 	// std::cout << "m|" << std::endl;
 	// std::cout << " v" << std::endl;
-	std::cout << "[" << _n << ", " << _m << "]" << std::endl;
+	// std::cout << "[" << _n << ", " << _m << "]" << std::endl;
 	return (shape);
 }
 
@@ -126,17 +126,6 @@ Vector	Matrix::reshape()
 		it_row++;
 	}
 	return (Vector(new_vector));
-}
-
-Matrix &Matrix::operator=(const Matrix &rhs)
-{
-	if (this != &rhs)
-	{
-		this->_matrix = rhs._matrix;
-		this->_n = rhs._n;
-		this->_m = rhs._m;
-	}
-	return (*this);
 }
 
 void	Matrix::add(Matrix &added)
@@ -170,4 +159,35 @@ void	Matrix::scl(float scaler)
 	for (unsigned int i = 0; i < _m; i++)
 		for (unsigned int u = 0; u < _n; u++)
 			_matrix[i][u] *= scaler;
+}
+
+// ------ Surcharge d'operateur ------
+
+Matrix &Matrix::operator=(const Matrix &rhs)
+{
+	if (this != &rhs)
+	{
+		this->_matrix = rhs._matrix;
+		this->_n = rhs._n;
+		this->_m = rhs._m;
+	}
+	return (*this);
+}
+
+Matrix &Matrix::operator+(Matrix &rhs)
+{
+	this->add(rhs);
+	return (*this);
+}
+
+Matrix &Matrix::operator-(Matrix &rhs)
+{
+	this->sub(rhs);
+	return (*this);
+}
+
+Matrix &Matrix::operator*(float scaler)
+{
+	this->scl(scaler);
+	return (*this);
 }

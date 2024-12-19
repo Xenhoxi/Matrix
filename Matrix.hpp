@@ -6,7 +6,7 @@
 /*   By: ljerinec <ljerinec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 13:45:14 by ljerinec          #+#    #+#             */
-/*   Updated: 2024/12/18 15:33:57 by ljerinec         ###   ########.fr       */
+/*   Updated: 2024/12/19 16:37:57 by ljerinec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,10 @@ public:
 	void			scl(float scaler);
 
 	Matrix &operator=(const Matrix &rhs);
+	Matrix &operator+(Matrix &rhs);
+	Matrix &operator-(Matrix &rhs);
+	Matrix &operator*(Matrix &rhs);
+	Matrix &operator*(float scaler);
 
 	class ShapeError : public std::exception 
 	{

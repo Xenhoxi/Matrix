@@ -6,7 +6,7 @@
 /*   By: ljerinec <ljerinec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 13:54:54 by ljerinec          #+#    #+#             */
-/*   Updated: 2024/12/18 14:54:39 by ljerinec         ###   ########.fr       */
+/*   Updated: 2024/12/19 17:32:49 by ljerinec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,13 @@ struct Vector {
 	void	add(Vector &added);
 	void	sub(Vector &substract);
 	void	scl(float scaler);
+	float	dot(Vector &dot_vec);
 
 	Vector &operator=(Vector const &rhs);
+	Vector &operator+(Vector &rhs);
+	Vector &operator-(Vector &rhs);
+	Vector &operator*(Vector &rhs);
+	Vector &operator*(float scaler);
 
 	class SizeError : public std::exception 
 	{

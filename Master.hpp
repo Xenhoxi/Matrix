@@ -6,7 +6,7 @@
 /*   By: ljerinec <ljerinec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 14:51:39 by ljerinec          #+#    #+#             */
-/*   Updated: 2024/12/18 15:32:12 by ljerinec         ###   ########.fr       */
+/*   Updated: 2024/12/19 16:14:54 by ljerinec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,11 @@ Vector	linear_combination(std::vector<Vector> lst_vector, std::vector<float> coe
 class SizeError : public std::exception 
 {
 public:
-    virtual const char* what() const throw() {
-        return ("Size error !"); 
-    }
+	virtual const char* what() const throw() {
+		return ("Size error !"); 
+	}
 };
+
+#include "linear_interpolation.tpp"
 
 #endif
