@@ -6,7 +6,7 @@
 /*   By: ljerinec <ljerinec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 13:10:39 by ljerinec          #+#    #+#             */
-/*   Updated: 2024/12/19 17:42:12 by ljerinec         ###   ########.fr       */
+/*   Updated: 2025/01/06 15:06:23 by ljerinec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,5 @@ int main()
     Vector  vec_1({2.0, 1.});
     Vector  vec_2({4.0, 2.});
 
-    Vector v3 = vec_1 - vec_2;
-    vec_1.display();
-    vec_2.display();
-    v3.display();
+    std::cout << "Dot product: " << vec_1.dot(vec_2) << std::endl;
 }

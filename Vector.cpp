@@ -6,7 +6,7 @@
 /*   By: ljerinec <ljerinec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 13:53:38 by ljerinec          #+#    #+#             */
-/*   Updated: 2024/12/19 17:41:48 by ljerinec         ###   ########.fr       */
+/*   Updated: 2025/01/06 14:59:15 by ljerinec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,33 +127,38 @@ Vector &Vector::operator=(Vector const &rhs)
 	return (*this);
 }
 
-Vector &Vector::operator+(Vector &rhs)
+Vector Vector::operator+(Vector &rhs) const
 {
-	this->add(rhs);
-	return (*this);
+	Vector tmp = Vector(*this);
+	tmp.add(rhs);
+	return (tmp);
 }
 
-Vector &Vector::operator-(Vector &rhs)
+Vector Vector::operator-(Vector &rhs) const
 {
-	this->sub(rhs);
-	return (*this);
+	Vector tmp = Vector(*this);
+	tmp.sub(rhs);
+	return (tmp);
 }
 
-Vector &Vector::operator*(Vector &rhs)
+Vector Vector::operator*(Vector &rhs) const
 {
+	std::vector<float> tmp;
+
 	if (this->size() != rhs.size())
 		throw Vector::SizeError();
 	else
 	{
 		for (int i = 0; i < this->size(); i++)
-			this->_vector[i] *= rhs._vector[i];
+			tmp.push_back(this->_vector[i] * rhs._vector[i]);
 	}
-	return (*this);
+	return (Vector(tmp));
 }
 
-Vector &Vector::operator*(float scaler)
+Vector Vector::operator*(float scaler) const
 {
-	this->scl(scaler);
-	return (*this);
+	Vector tmp = Vector(*this);
+	tmp.scl(scaler);
+	return (tmp);
 }
 

@@ -6,7 +6,7 @@
 /*   By: ljerinec <ljerinec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 15:32:03 by ljerinec          #+#    #+#             */
-/*   Updated: 2024/12/19 16:46:18 by ljerinec         ###   ########.fr       */
+/*   Updated: 2025/01/06 14:57:29 by ljerinec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -174,20 +174,23 @@ Matrix &Matrix::operator=(const Matrix &rhs)
 	return (*this);
 }
 
-Matrix &Matrix::operator+(Matrix &rhs)
+Matrix Matrix::operator+(Matrix &rhs) const
 {
-	this->add(rhs);
-	return (*this);
+	Matrix tmp = Matrix(*this);
+	tmp.add(rhs);
+	return (tmp);
 }
 
-Matrix &Matrix::operator-(Matrix &rhs)
+Matrix Matrix::operator-(Matrix &rhs) const
 {
-	this->sub(rhs);
-	return (*this);
+	Matrix tmp = Matrix(*this);
+	tmp.sub(rhs);
+	return (tmp);
 }
 
-Matrix &Matrix::operator*(float scaler)
+Matrix Matrix::operator*(float scaler) const
 {
-	this->scl(scaler);
-	return (*this);
+	Matrix tmp = Matrix(*this);
+	tmp.scl(scaler);
+	return (tmp);
 }
