@@ -1,46 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Matrix.cpp                                         :+:      :+:    :+:   */
+/*   Matrix.tpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ljerinec <ljerinec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 15:32:03 by ljerinec          #+#    #+#             */
-/*   Updated: 2025/01/06 14:57:29 by ljerinec         ###   ########.fr       */
+/*   Updated: 2025/01/07 15:52:19 by ljerinec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Matrix.hpp"
-#include <vector>
 
-Matrix::Matrix(void)
+template<typename T>
+Matrix<T>::Matrix(void)
 {
 	return;
 }
 
-Matrix::Matrix(std::vector<std::vector<float>> new_matrix)
+template<typename T>
+Matrix<T>::Matrix(std::vector<std::vector<T>> new_matrix)
 {
 	_matrix = new_matrix;
 	this->shape();
 	// std::cout << "Matrix created !" << std::endl;
 }
 
-Matrix::~Matrix(void)
+template<typename T>
+Matrix<T>::~Matrix(void)
 {
 	// std::cout << "Delete matrix !" << std::endl;
 }
 
-Matrix::Matrix(const Matrix &src)
+template<typename T>
+Matrix<T>::Matrix(const Matrix<T> &src)
 {
 	this->_matrix = src._matrix;
 	this->_n = src._n;
 	this->_m = src._m;
 }
 
-void	Matrix::display()
+template<typename T>
+void	Matrix<T>::display()
 {
-	std::vector<std::vector<float>>::iterator	it_row = _matrix.begin();
-	std::vector<float>::iterator it_col = (*it_row).begin();
+	typename std::vector<std::vector<T>>::iterator	it_row = _matrix.begin();
+	typename std::vector<T>::iterator it_col = (*it_row).begin();
 
 	std::cout << "-- Display of matrix n = " << _n << " m = " << _m  << " --"<< std::endl; 
 	std::cout << "[";
@@ -66,9 +70,10 @@ void	Matrix::display()
 	
 }
 
-bool	Matrix::is_square(void)
+template<typename T>
+bool	Matrix<T>::is_square(void)
 {
-	std::vector<std::vector<float>>::iterator	it_row = _matrix.begin();
+	typename std::vector<std::vector<T>>::iterator	it_row = _matrix.begin();
 	size_t	lenght = (*it_row++).size();
 
 	while (it_row != _matrix.end())
@@ -80,7 +85,8 @@ bool	Matrix::is_square(void)
 	return (true);
 }
 
-std::vector<unsigned long>	Matrix::shape(void)
+template<typename T>
+std::vector<unsigned long>	Matrix<T>::shape(void)
 {
 	std::vector<unsigned long> shape;
 	std::vector<std::vector<float>>::iterator	it_row = _matrix.begin();
@@ -109,7 +115,8 @@ std::vector<unsigned long>	Matrix::shape(void)
 	return (shape);
 }
 
-Vector	Matrix::reshape()
+template<typename T>
+Vector<T>	Matrix<T>::reshape()
 {
 	std::vector<std::vector<float>>::iterator it_row = _matrix.begin();
 	std::vector<float>::iterator it_col;
@@ -125,10 +132,11 @@ Vector	Matrix::reshape()
 		}
 		it_row++;
 	}
-	return (Vector(new_vector));
+	return (Vector<T>(new_vector));
 }
 
-void	Matrix::add(Matrix &added)
+template<typename T>
+void	Matrix<T>::add(Matrix<T> &added)
 {
 	if (!this->is_square() || !added.is_square()
 		|| _n != added._n || _m != added._m)
@@ -141,7 +149,8 @@ void	Matrix::add(Matrix &added)
 	}
 }
 
-void	Matrix::sub(Matrix &substract)
+template<typename T>
+void	Matrix<T>::sub(Matrix<T> &substract)
 {
 	if (!this->is_square() || !substract.is_square()
 		|| _n != substract._n || _m != substract._m)
@@ -154,7 +163,8 @@ void	Matrix::sub(Matrix &substract)
 	}
 }
 
-void	Matrix::scl(float scaler)
+template<typename T>
+void	Matrix<T>::scl(float scaler)
 {
 	for (unsigned int i = 0; i < _m; i++)
 		for (unsigned int u = 0; u < _n; u++)
@@ -163,7 +173,8 @@ void	Matrix::scl(float scaler)
 
 // ------ Surcharge d'operateur ------
 
-Matrix &Matrix::operator=(const Matrix &rhs)
+template<typename T>
+Matrix<T> &Matrix<T>::operator=(const Matrix<T> &rhs)
 {
 	if (this != &rhs)
 	{
@@ -174,23 +185,26 @@ Matrix &Matrix::operator=(const Matrix &rhs)
 	return (*this);
 }
 
-Matrix Matrix::operator+(Matrix &rhs) const
+template<typename T>
+Matrix<T> Matrix<T>::operator+(Matrix<T> &rhs) const
 {
-	Matrix tmp = Matrix(*this);
+	Matrix<T> tmp = Matrix(*this);
 	tmp.add(rhs);
 	return (tmp);
 }
 
-Matrix Matrix::operator-(Matrix &rhs) const
+template<typename T>
+Matrix<T> Matrix<T>::operator-(Matrix<T> &rhs) const
 {
-	Matrix tmp = Matrix(*this);
+	Matrix<T> tmp = Matrix(*this);
 	tmp.sub(rhs);
 	return (tmp);
 }
 
-Matrix Matrix::operator*(float scaler) const
+template<typename T>
+Matrix<T> Matrix<T>::operator*(float scaler) const
 {
-	Matrix tmp = Matrix(*this);
+	Matrix<T> tmp = Matrix(*this);
 	tmp.scl(scaler);
 	return (tmp);
 }

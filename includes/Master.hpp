@@ -6,7 +6,7 @@
 /*   By: ljerinec <ljerinec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 14:51:39 by ljerinec          #+#    #+#             */
-/*   Updated: 2024/12/19 16:14:54 by ljerinec         ###   ########.fr       */
+/*   Updated: 2025/01/07 16:08:46 by ljerinec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@
 #include <exception>
 #include <list>
 
-Vector	linear_combination(std::vector<Vector> lst_vector, std::vector<float> coefs);
-
 class SizeError : public std::exception 
 {
 public:
@@ -28,6 +26,6 @@ public:
 	}
 };
 
-#include "linear_interpolation.tpp"
+#include "../linear_calcul.tpp"
 
 #endif

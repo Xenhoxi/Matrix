@@ -6,7 +6,7 @@
 /*   By: ljerinec <ljerinec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 13:54:54 by ljerinec          #+#    #+#             */
-/*   Updated: 2025/01/06 14:59:09 by ljerinec         ###   ########.fr       */
+/*   Updated: 2025/01/07 17:30:32 by ljerinec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,28 +17,34 @@
 #include <vector>
 #include "Matrix.hpp"
 
+template<typename T>
 struct Matrix;
 
+template<typename T>
 struct Vector {
 	Vector(void);
-	Vector(std::vector<float> new_vector);
-	Vector(const Vector &src);
+	Vector(std::vector<T> new_vector);
+	Vector(const Vector<T> &src);
 	~Vector();
 
-    int		size(void) const;
-	void	display(void);
-	Matrix	reshape(unsigned int width);
+    int			size(void) const;
+	void		display(void);
+	Matrix<T>	reshape(unsigned int width);
 
-	void	add(Vector &added);
-	void	sub(Vector &substract);
-	void	scl(float scaler);
-	float	dot(Vector &dot_vec);
+	void		add(Vector<T> &added);
+	void		sub(Vector<T> &substract);
+	void		scl(float scaler);
+	float		dot(Vector<T> &dot_vec);
 
-	Vector &operator=(Vector const &rhs);
-	Vector operator+(Vector &rhs) const;
-	Vector operator-(Vector &rhs) const;
-	Vector operator*(Vector &rhs) const;
-	Vector operator*(float scaler) const;
+	Vector<T> &operator=(Vector<T> const &rhs);
+	Vector<T> operator+(Vector<T> &rhs) const;
+	Vector<T> operator-(Vector<T> &rhs) const;
+	Vector<T> operator*(Vector<T> &rhs) const;
+	Vector<T> operator*(float scaler) const;
+
+	float		norm_1(void);
+	float		norm(void);
+	float		norm_inf(void);
 
 	class SizeError : public std::exception 
 	{
@@ -49,8 +55,10 @@ struct Vector {
 	};
 
 private:
-	std::vector<float>	_vector;
+	std::vector<T>	_vector;
 	unsigned int		_size;
 };
+
+#include "../Vector.tpp"
 
 #endif

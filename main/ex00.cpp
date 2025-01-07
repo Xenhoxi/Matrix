@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_ex00.cpp                                      :+:      :+:    :+:   */
+/*   ex00.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ljerinec <ljerinec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 13:10:39 by ljerinec          #+#    #+#             */
-/*   Updated: 2024/12/18 14:20:35 by ljerinec         ###   ########.fr       */
+/*   Updated: 2025/01/07 16:03:58 by ljerinec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,15 @@ int main()
 {
     std::cout << "Lib Matrix" << std::endl;
     
-    Vector  my_vec({1.0, 2.3, 6.0, 7.8902});
-    Vector  vec_2(my_vec);
-    Vector  vec_3({1.0, 2.3, 6.0, 7.8902, 9});
+    Vector<float>  my_vec({1.0, 2.3, 6.0, 7.8902});
+    Vector<float>  vec_2(my_vec);
+    Vector<float>  vec_3({1.0, 2.3, 6.0, 7.8902, 9});
 
     std::cout << "------ Vector add, sub and scaler operation ------" << std::endl;
     try
 	{
-        Vector  vec_1({1.0, 2.3, 6.0, 7.8902});
-        Vector  vec_2(my_vec);
+        Vector<float>  vec_1({1.0, 2.3, 6.0, 7.8902});
+        Vector<float>  vec_2(my_vec);
         vec_1.display();
         vec_2.display();
         vec_1.add(vec_2);
@@ -47,13 +47,13 @@ int main()
     std::cout << "------ Matrix add, sub and scaler operation ------" << std::endl;
     try
 	{
-        Matrix  mat_1({
+        Matrix<float>  mat_1({
         {-1, 0, 1},
         {2, 3, 4},
         {5, 6, 7},
         {8, 9, 10}}
         );
-        Matrix  mat_2(mat_1);
+        Matrix<float>  mat_2(mat_1);
         mat_1.display();
         mat_2.display();
         mat_1.add(mat_2);

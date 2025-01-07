@@ -1,21 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   linear_combination.cpp                             :+:      :+:    :+:   */
+/*   linear_calcul.tpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ljerinec <ljerinec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/18 14:45:45 by ljerinec          #+#    #+#             */
-/*   Updated: 2024/12/19 16:15:27 by ljerinec         ###   ########.fr       */
+/*   Created: 2024/12/19 16:15:19 by ljerinec          #+#    #+#             */
+/*   Updated: 2025/01/07 15:09:40 by ljerinec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Master.hpp"
 #include "Vector.hpp"
 
-Vector	linear_combination(std::vector<Vector> lst_vector, std::vector<float> coefs)
+template<typename V>
+V   linear_interpolation(V u, V v, float t)
 {
-	std::vector<Vector> lst_tmp = lst_vector;
+    V res = (v - u) * t + u;
+	return (res);
+}
+
+
+template<typename T>
+Vector<T>	linear_combination(std::vector<Vector<T>> lst_vector, std::vector<T> coefs)
+{
+	std::vector<Vector<T>> lst_tmp = lst_vector;
 	if(lst_tmp.size() != coefs.size())
 		throw SizeError();
 	lst_tmp[0].scl(coefs[0]);
