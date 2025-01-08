@@ -6,11 +6,12 @@
 /*   By: ljerinec <ljerinec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 13:53:38 by ljerinec          #+#    #+#             */
-/*   Updated: 2025/01/07 17:34:22 by ljerinec         ###   ########.fr       */
+/*   Updated: 2025/01/08 14:35:38 by ljerinec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Vector.hpp"
+#include <algorithm>
 
 template<typename T>
 Vector<T>::Vector(std::vector<T> new_vector)
@@ -126,19 +127,35 @@ float	Vector<T>::dot(Vector<T> &dot_vec)
 template<typename T>
 float	Vector<T>::norm_1(void)
 {
+	float total = 0;
 	
+	for	(typename std::vector<T>::iterator it = _vector.begin(); it != _vector.end(); it++)
+		total += std::abs((*it));
+	return (total);
 }
 
 template<typename T>
 float	Vector<T>::norm(void)
 {
+	float norm = 0;
 	
+	for	(typename std::vector<T>::iterator it = _vector.begin(); it != _vector.end(); it++)
+		norm += pow((*it), 2);
+	return (sqrt(norm));
 }
 
 template<typename T>
 float	Vector<T>::norm_inf(void)
 {
-	
+	T tmp;
+	float norm = -1;
+
+	for	(typename std::vector<T>::iterator it = _vector.begin(); it != _vector.end(); it++)
+	{
+		tmp = std::abs((*it));
+		norm = std::max(norm, tmp);
+	}
+	return (norm);
 }
 
 // ------ Surcharge d'operateur ------
