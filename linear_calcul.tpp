@@ -6,7 +6,7 @@
 /*   By: ljerinec <ljerinec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 16:15:19 by ljerinec          #+#    #+#             */
-/*   Updated: 2025/01/07 15:09:40 by ljerinec         ###   ########.fr       */
+/*   Updated: 2025/01/09 16:48:00 by ljerinec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,14 @@ Vector<T>	linear_combination(std::vector<Vector<T>> lst_vector, std::vector<T> c
 		lst_tmp[0].add(lst_tmp[i]);
 	}
 	return (lst_tmp[0]);
+}
+
+template<typename T>
+float	angle_cos(Vector<T> &a, Vector<T> &b)
+{
+	if (a.size() != b.size() || !a.size() || !b.size())
+		throw SizeError();
+	float result = 0;
+	result = a.dot(b) / (a.norm() * b.norm());
+	return (result);
 }
