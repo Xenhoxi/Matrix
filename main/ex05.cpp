@@ -6,7 +6,7 @@
 /*   By: ljerinec <ljerinec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 13:10:39 by ljerinec          #+#    #+#             */
-/*   Updated: 2025/01/09 16:50:19 by ljerinec         ###   ########.fr       */
+/*   Updated: 2026/10/26 12:47:46 by ljerinec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,10 @@ int main()
         Vector<float>    v7({1.0, 2.0, 3.0});
         Vector<float>    v8({4.0, 5.0, 6.0});
         std::cout << angle_cos(v7, v8) << std::endl;
+        
+        Vector<float>    v13({1.0, 2.0, 3.0, 4.0, 6.});
+        Vector<float>    v14({4.0, 5.0, 6.0, 5.0, 5.0});
+        std::cout << angle_cos(v13, v14) << std::endl;
 
         Vector<float>    v11({-1.0});
         Vector<float>    v12({1.0, -1.0});

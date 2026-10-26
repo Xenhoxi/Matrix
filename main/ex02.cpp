@@ -6,7 +6,7 @@
 /*   By: ljerinec <ljerinec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 13:10:39 by ljerinec          #+#    #+#             */
-/*   Updated: 2026/10/26 10:25:11 by ljerinec         ###   ########.fr       */
+/*   Updated: 2026/10/26 12:39:43 by ljerinec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 
 int main()
 {
+    std::cout << "--- EX02 ---" << std::endl;
     std::cout << "Lib Matrix" << std::endl;
     
     float iresult = linear_interpolation(0.0, 1.0, 0.5);

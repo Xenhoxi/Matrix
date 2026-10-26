@@ -6,7 +6,7 @@
 /*   By: ljerinec <ljerinec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 13:10:39 by ljerinec          #+#    #+#             */
-/*   Updated: 2026/10/26 10:25:17 by ljerinec         ###   ########.fr       */
+/*   Updated: 2026/10/26 12:39:51 by ljerinec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 int main()
 {
     // Vx[x] + Y[x] = R[x]
-
+    std::cout << "--- EX01 ---" << std::endl;
     
     Vector<float>  vec_1({1.0, 0, 0});
     Vector<float>  vec_2({0, 1.0, 0});
