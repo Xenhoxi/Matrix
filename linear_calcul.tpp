@@ -6,7 +6,7 @@
 /*   By: ljerinec <ljerinec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 16:15:19 by ljerinec          #+#    #+#             */
-/*   Updated: 2025/01/09 16:48:00 by ljerinec         ###   ########.fr       */
+/*   Updated: 2026/10/26 10:15:55 by ljerinec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ V   linear_interpolation(V u, V v, float t)
 template<typename T>
 Vector<T>	linear_combination(std::vector<Vector<T>> lst_vector, std::vector<T> coefs)
 {
+	if (lst_vector.size() != coefs.size())
+		throw SizeError();
 	std::vector<Vector<T>> lst_tmp = lst_vector;
 	if(lst_tmp.size() != coefs.size())
 		throw SizeError();

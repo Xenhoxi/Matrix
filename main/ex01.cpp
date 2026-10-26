@@ -6,7 +6,7 @@
 /*   By: ljerinec <ljerinec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 13:10:39 by ljerinec          #+#    #+#             */
-/*   Updated: 2025/01/07 16:03:59 by ljerinec         ###   ########.fr       */
+/*   Updated: 2026/10/26 10:25:17 by ljerinec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,37 +14,42 @@
 #include <vector>
 #include "Master.hpp"
 
-// let e1 = Vector::from([1., 0., 0.]);
-// let e2 = Vector::from([0., 1., 0.]);
-// let e3 = Vector::from([0., 0., 1.]);
-
-// let v1 = Vector::from([1., 2., 3.]);
-// let v2 = Vector::from([0., 10., -100.]);
-
-// println!("{}", linear_combination<Vector<f32>, f32>([e1, e2, e3], [10., -2., 0.5]));
-// [10.]
-// [-2.]
-// [0.5]
-// println!("{}", linear_combination<Vector<f32>, f32>([v1, v2], [10., -2.]));
-// [10.]
-// [0.]
-// [230.]
-
 int main()
 {
-    std::cout << "Lib Matrix" << std::endl;
+    // Vx[x] + Y[x] = R[x]
+
     
     Vector<float>  vec_1({1.0, 0, 0});
     Vector<float>  vec_2({0, 1.0, 0});
     Vector<float>  vec_3({0, 0, 1.0});
-
+    std::cout << "Lib Matrix" << std::endl;
     Vector<float> lc = linear_combination<float>({vec_1, vec_2, vec_3}, {10, -2, 0.5});
     lc.display();
-
 
     Vector<int>  v1({1, 2, 3});
     Vector<int>  v2({0, 10, -100});
 
     Vector<int> lc2 = linear_combination<int>({v1, v2}, {10, -2});
-    lc2.display();    
+    lc2.display();
+
+
+    Vector<double>  v3({2.5, 2.1, 3.2});
+    Vector<double>  v4({2.3, 10.5, 9.});
+
+    Vector<double> lc3 = linear_combination<double>({v3, v4}, {2, -5});
+    lc3.display();
+
+    try
+    {    
+        Vector<float>  vec_1({1.0, 0, 0});
+        Vector<float>  vec_2({0, 1.0, 0});
+        Vector<float>  vec_3({0, 0, 1.0});
+        Vector<float> lc = linear_combination<float>({vec_1, vec_2, vec_3}, {10, -2});
+        lc.display();
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    
 }

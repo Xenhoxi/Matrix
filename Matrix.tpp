@@ -6,7 +6,7 @@
 /*   By: ljerinec <ljerinec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 15:32:03 by ljerinec          #+#    #+#             */
-/*   Updated: 2025/01/07 15:52:19 by ljerinec         ###   ########.fr       */
+/*   Updated: 2026/10/26 09:32:49 by ljerinec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	Matrix<T>::display()
 	typename std::vector<std::vector<T>>::iterator	it_row = _matrix.begin();
 	typename std::vector<T>::iterator it_col = (*it_row).begin();
 
-	std::cout << "-- Display of matrix n = " << _n << " m = " << _m  << " --"<< std::endl; 
+	std::cout << "(" << _n << ", " << _m  << ")"<< std::endl; 
 	std::cout << "[";
 	while (it_row != _matrix.end())
 	{

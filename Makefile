@@ -6,15 +6,15 @@
 #    By: ljerinec <ljerinec@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/27 12:57:34 by ljerinec          #+#    #+#              #
-#    Updated: 2025/01/07 16:10:03 by ljerinec         ###   ########.fr        #
+#    Updated: 2026/10/26 09:30:08 by ljerinec         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = c++
 CFLAGS = -Wall -Werror -Wextra -g3 -fsanitize=address
 
-ex := 00
-MAIN = main/ex$(ex).cpp
+EX ?= 00
+MAIN = main/ex$(EX).cpp
 
 SOURCES =	$(MAIN) \
 

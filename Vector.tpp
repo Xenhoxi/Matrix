@@ -6,7 +6,7 @@
 /*   By: ljerinec <ljerinec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 13:53:38 by ljerinec          #+#    #+#             */
-/*   Updated: 2025/01/08 14:35:38 by ljerinec         ###   ########.fr       */
+/*   Updated: 2026/10/26 09:16:31 by ljerinec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void Vector<T>::display(void)
 {
 	unsigned int    i = -1;
 
-	std::cout << "-- Display of vector size = " << _size << " --"<< std::endl; 
+	// std::cout << "-- Vector (size = " << _size << ") --"<< std::endl; 
 	std::cout << "[";
 	while (++i < this->_size)
 	{
