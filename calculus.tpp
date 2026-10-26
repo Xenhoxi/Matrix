@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   linear_calcul.tpp                                  :+:      :+:    :+:   */
+/*   calculus.tpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ljerinec <ljerinec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 16:15:19 by ljerinec          #+#    #+#             */
-/*   Updated: 2026/10/26 10:15:55 by ljerinec         ###   ########.fr       */
+/*   Updated: 2026/10/26 13:37:53 by ljerinec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,14 @@ float	angle_cos(Vector<T> &a, Vector<T> &b)
 {
 	if (a.size() != b.size() || !a.size() || !b.size())
 		throw SizeError();
+	float result = 0;
+	result = a.dot(b) / (a.norm() * b.norm());
+	return (result);
+}
+
+template<typename T>
+float	cross_product(Vector<T> &a, Vector<T> &b)
+{
 	float result = 0;
 	result = a.dot(b) / (a.norm() * b.norm());
 	return (result);

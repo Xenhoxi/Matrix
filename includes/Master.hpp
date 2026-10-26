@@ -6,7 +6,7 @@
 /*   By: ljerinec <ljerinec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 14:51:39 by ljerinec          #+#    #+#             */
-/*   Updated: 2026/10/26 09:56:31 by ljerinec         ###   ########.fr       */
+/*   Updated: 2026/10/26 13:35:35 by ljerinec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,6 @@ public:
 	}
 };
 
-#include "../linear_calcul.tpp"
+#include "../calculus.tpp"
 
 #endif

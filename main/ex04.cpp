@@ -6,7 +6,7 @@
 /*   By: ljerinec <ljerinec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 13:10:39 by ljerinec          #+#    #+#             */
-/*   Updated: 2026/10/26 12:42:31 by ljerinec         ###   ########.fr       */
+/*   Updated: 2026/10/26 13:00:15 by ljerinec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 int main()
 {
-
+    std::cout << "--- EX04 ---" << std::endl;
     Vector<float>    v1({0.0, 0., 0});
     std::cout << "norm_1: " << v1.norm_1() << ", norm: " << v1.norm() << ", norm_inf: " << v1.norm_inf() << std::endl;
     Vector<float>    v2({1.0, 2., 3});

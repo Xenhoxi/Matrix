@@ -6,7 +6,7 @@
 /*   By: ljerinec <ljerinec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 13:10:39 by ljerinec          #+#    #+#             */
-/*   Updated: 2026/10/26 12:47:46 by ljerinec         ###   ########.fr       */
+/*   Updated: 2026/10/26 13:00:23 by ljerinec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 int main()
 {
-    std::cout << "Lib Matrix" << std::endl;
+    std::cout << "--- EX05 ---" << std::endl;
 
     try
     {
